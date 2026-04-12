@@ -34,7 +34,7 @@ export const precureSeasons: Season[] = [
       { id: "m1", title: "Futari wa Pretty Cure Max Heart the Movie", type: 'movie' },
       { id: "m2", title: "Futari wa Pretty Cure Max Heart 2: Friends of the Snow-Laden Sky", type: 'movie' }
     ],
-    malUrl: "https://myanimelist.net/anime/604/Futari_wa_Precure__Max_Heart"
+    malUrl: "https://myanimelist.net/anime/1929/Futari_wa_Precure__Max_Heart"
   },
   {
     id: "splash-star",
