@@ -20,10 +20,7 @@ export const precureSeasons: Season[] = [
     year: 2004,
     episodesCount: 49,
     color: "bg-pink-400",
-    movies: [
-      { id: "m1", title: "Futari wa Pretty Cure Max Heart the Movie", type: 'movie' },
-      { id: "m2", title: "Futari wa Pretty Cure Max Heart 2: Friends of the Snow-Laden Sky", type: 'movie' }
-    ]
+    movies: []
   },
   {
     id: "max-heart",
@@ -31,7 +28,10 @@ export const precureSeasons: Season[] = [
     year: 2005,
     episodesCount: 47,
     color: "bg-yellow-400",
-    movies: []
+    movies: [
+      { id: "m1", title: "Futari wa Pretty Cure Max Heart the Movie", type: 'movie' },
+      { id: "m2", title: "Futari wa Pretty Cure Max Heart 2: Friends of the Snow-Laden Sky", type: 'movie' }
+    ]
   },
   {
     id: "splash-star",
@@ -111,6 +111,116 @@ export const precureSeasons: Season[] = [
     color: "bg-pink-600",
     movies: [
       { id: "m10", title: "DokiDoki! PreCure the Movie: Mana's Getting Married!!? The Dress of Hope that Connects to the Future", type: 'movie' }
+    ]
+  },
+  {
+    id: "happiness-charge",
+    title: "HappinessCharge PreCure!",
+    year: 2014,
+    episodesCount: 49,
+    color: "bg-blue-400",
+    movies: [
+      { id: "m11", title: "HappinessCharge PreCure! the Movie: The Ballerina of the Land of Dolls", type: 'movie' }
+    ]
+  },
+  {
+    id: "go-princess",
+    title: "Go! Princess PreCure",
+    year: 2015,
+    episodesCount: 50,
+    color: "bg-pink-200",
+    movies: [
+      { id: "m12", title: "Go! Princess PreCure the Movie: Go! Go!! Splendid Triple Feature!!!", type: 'movie' }
+    ]
+  },
+  {
+    id: "maho-girls",
+    title: "Maho Girls PreCure!",
+    year: 2016,
+    episodesCount: 50,
+    color: "bg-purple-500",
+    movies: [
+      { id: "m13", title: "Maho Girls PreCure! the Movie: The Miraculous Transformation! Cure Mofurun!", type: 'movie' }
+    ]
+  },
+  {
+    id: "kirakira",
+    title: "Kirakira PreCure a la Mode",
+    year: 2017,
+    episodesCount: 49,
+    color: "bg-yellow-200",
+    movies: [
+      { id: "m14", title: "Kirakira PreCure a la Mode the Movie: Memories of Mille-Feuille!", type: 'movie' }
+    ]
+  },
+  {
+    id: "hugtto",
+    title: "Hugtto! PreCure",
+    year: 2018,
+    episodesCount: 49,
+    color: "bg-pink-400",
+    movies: [
+      { id: "m15", title: "Hugtto! PreCure ♡ Futari wa Pretty Cure: All Stars Memories", type: 'movie' }
+    ]
+  },
+  {
+    id: "star-twinkle",
+    title: "Star Twinkle PreCure",
+    year: 2019,
+    episodesCount: 49,
+    color: "bg-indigo-400",
+    movies: [
+      { id: "m16", title: "Star Twinkle PreCure the Movie: These Feelings Within The Song Of Stars", type: 'movie' }
+    ]
+  },
+  {
+    id: "healin-good",
+    title: "Healin' Good PreCure",
+    year: 2020,
+    episodesCount: 45,
+    color: "bg-green-300",
+    movies: [
+      { id: "m17", title: "Healin' Good PreCure the Movie: GoGo! Big Transformation! The Town of Dreams", type: 'movie' }
+    ]
+  },
+  {
+    id: "tropical-rouge",
+    title: "Tropical-Rouge! PreCure",
+    year: 2021,
+    episodesCount: 46,
+    color: "bg-cyan-400",
+    movies: [
+      { id: "m18", title: "Tropical-Rouge! PreCure the Movie: The Snow Princess and the Miraculous Ring!", type: 'movie' }
+    ]
+  },
+  {
+    id: "delicious-party",
+    title: "Delicious Party PreCure",
+    year: 2022,
+    episodesCount: 45,
+    color: "bg-pink-500",
+    movies: [
+      { id: "m19", title: "Delicious Party PreCure the Movie: Dreaming Children's Lunch!", type: 'movie' }
+    ]
+  },
+  {
+    id: "hirogaru-sky",
+    title: "Hirogaru Sky! PreCure",
+    year: 2023,
+    episodesCount: 50,
+    color: "bg-sky-400",
+    movies: [
+      { id: "m20", title: "PreCure All Stars F", type: 'movie' }
+    ]
+  },
+  {
+    id: "wonderful",
+    title: "Wonderful PreCure!",
+    year: 2024,
+    episodesCount: 50,
+    color: "bg-pink-300",
+    movies: [
+      { id: "m21", title: "Wonderful PreCure! The Movie: Game World", type: 'movie' }
     ]
   }
 ];
