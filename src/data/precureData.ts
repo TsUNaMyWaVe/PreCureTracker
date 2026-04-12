@@ -65,7 +65,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 48,
     color: "bg-rose-400",
     movies: [
-      { id: "m5", title: "Yes! PreCure 5 GoGo! the Movie: Happy Birthday in the Sweets Kingdom", type: 'movie' }
+      { id: "m5", title: "Yes! PreCure 5 GoGo! the Movie: Happy Birthday in the Sweets Kingdom", type: 'movie' },
+      { id: "as0", title: "Pretty Cure All Stars GoGo Dream Live!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/3692/Yes_Precure_5_GoGo"
   },
@@ -76,7 +77,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 50,
     color: "bg-red-400",
     movies: [
-      { id: "m6", title: "Fresh Pretty Cure! the Movie: The Kingdom of Toys has Lots of Secrets!?", type: 'movie' }
+      { id: "m6", title: "Fresh Pretty Cure! the Movie: The Kingdom of Toys has Lots of Secrets!?", type: 'movie' },
+      { id: "as1", title: "Pretty Cure All Stars DX: Everyone's Friends☆The Collection of Miracles!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/5684/Fresh_Precure"
   },
@@ -87,7 +89,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-purple-400",
     movies: [
-      { id: "m7", title: "HeartCatch PreCure! the Movie: Fashion Show in the Flower Capital... Really?!", type: 'movie' }
+      { id: "m7", title: "HeartCatch PreCure! the Movie: Fashion Show in the Flower Capital... Really?!", type: 'movie' },
+      { id: "as2", title: "Pretty Cure All Stars DX2: Light of Hope☆Protect the Rainbow Jewel!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/7645/HeartCatch_Precure"
   },
@@ -98,7 +101,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 48,
     color: "bg-pink-300",
     movies: [
-      { id: "m8", title: "Suite PreCure the Movie: Take it back! The Miraculous Melody that Connects Hearts", type: 'movie' }
+      { id: "m8", title: "Suite PreCure the Movie: Take it back! The Miraculous Melody that Connects Hearts", type: 'movie' },
+      { id: "as3", title: "Pretty Cure All Stars DX3: Deliver the Future! The Rainbow-Colored Flower That Connects the World!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/9893/Suite_Precure%E2%99%AA"
   },
@@ -109,7 +113,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 48,
     color: "bg-orange-400",
     movies: [
-      { id: "m9", title: "Smile PreCure! the Movie: Big Mismatch in a Picture Book!", type: 'movie' }
+      { id: "m9", title: "Smile PreCure! the Movie: Big Mismatch in a Picture Book!", type: 'movie' },
+      { id: "as4", title: "Pretty Cure All Stars New Stage: Friends of the Future", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/12191/Smile_Precure"
   },
@@ -120,7 +125,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-pink-600",
     movies: [
-      { id: "m10", title: "DokiDoki! PreCure the Movie: Mana's Getting Married!!? The Dress of Hope that Connects to the Future", type: 'movie' }
+      { id: "m10", title: "DokiDoki! PreCure the Movie: Mana's Getting Married!!? The Dress of Hope that Connects to the Future", type: 'movie' },
+      { id: "as5", title: "Pretty Cure All Stars New Stage 2: Friends of the Heart", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/16419/DokiDoki_Precure"
   },
@@ -131,7 +137,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-blue-400",
     movies: [
-      { id: "m11", title: "HappinessCharge PreCure! the Movie: The Ballerina of the Land of Dolls", type: 'movie' }
+      { id: "m11", title: "HappinessCharge PreCure! the Movie: The Ballerina of the Land of Dolls", type: 'movie' },
+      { id: "as6", title: "Pretty Cure All Stars New Stage 3: Eternal Friends", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/21407/HappinessCharge_Precure"
   },
@@ -142,7 +149,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 50,
     color: "bg-pink-200",
     movies: [
-      { id: "m12", title: "Go! Princess PreCure the Movie: Go! Go!! Splendid Triple Feature!!!", type: 'movie' }
+      { id: "m12", title: "Go! Princess PreCure the Movie: Go! Go!! Splendid Triple Feature!!!", type: 'movie' },
+      { id: "as7", title: "Pretty Cure All Stars: Spring Carnival♪", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/28669/Go_Princess_Precure"
   },
@@ -153,7 +161,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 50,
     color: "bg-purple-500",
     movies: [
-      { id: "m13", title: "Maho Girls PreCure! the Movie: The Miraculous Transformation! Cure Mofurun!", type: 'movie' }
+      { id: "m13", title: "Maho Girls PreCure! the Movie: The Miraculous Transformation! Cure Mofurun!", type: 'movie' },
+      { id: "as8", title: "Pretty Cure All Stars: Singing with Everyone♪ Miraculous Magic!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/31884/Mahoutsukai_Precure"
   },
@@ -164,7 +173,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-yellow-200",
     movies: [
-      { id: "m14", title: "Kirakira PreCure a la Mode the Movie: Memories of Mille-Feuille!", type: 'movie' }
+      { id: "m14", title: "Kirakira PreCure a la Mode the Movie: Memories of Mille-Feuille!", type: 'movie' },
+      { id: "as9", title: "Pretty Cure Dream Stars!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/34290/Kirakira%E2%98%86Precure_a_la_Mode"
   },
@@ -175,7 +185,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-pink-400",
     movies: [
-      { id: "m15", title: "Hugtto! PreCure ♡ Futari wa Pretty Cure: All Stars Memories", type: 'movie' }
+      { id: "m15", title: "Hugtto! PreCure ♡ Futari wa Pretty Cure: All Stars Memories", type: 'movie' },
+      { id: "as10", title: "Pretty Cure Super Stars!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/36593/Hug_tto_Precure"
   },
@@ -186,7 +197,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-indigo-400",
     movies: [
-      { id: "m16", title: "Star Twinkle PreCure the Movie: These Feelings Within The Song Of Stars", type: 'movie' }
+      { id: "m16", title: "Star Twinkle PreCure the Movie: These Feelings Within The Song Of Stars", type: 'movie' },
+      { id: "as11", title: "Pretty Cure Miracle Universe", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/38578/Star%E2%98%86Twinkle_Precure"
   },
@@ -197,7 +209,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 45,
     color: "bg-green-300",
     movies: [
-      { id: "m17", title: "Healin' Good PreCure the Movie: GoGo! Big Transformation! The Town of Dreams", type: 'movie' }
+      { id: "m17", title: "Healin' Good PreCure the Movie: GoGo! Big Transformation! The Town of Dreams", type: 'movie' },
+      { id: "as12", title: "Pretty Cure Miracle Leap: A Strange Day with Everyone", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/40610/Healin_Good%E2%99%A1Precure"
   },
