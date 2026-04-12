@@ -32,42 +32,57 @@ const SeasonDetail = () => {
   return (
     <div className="p-6 max-w-5xl mx-auto animate-in fade-in duration-500">
       <div className="mb-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-          <div className="flex items-center gap-3">
-            <Badge variant="outline" className="border-pink-200 text-pink-600 bg-pink-50">
-              {season.year}
-            </Badge>
-            <h1 className="text-3xl font-bold text-gray-900">{season.title}</h1>
-          </div>
-          <Button 
-            variant="outline" 
-            asChild 
-            className="border-pink-200 text-pink-600 hover:bg-pink-50 hover:text-pink-700"
-          >
-            <a href={season.malUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-              <ExternalLink size={16} />
-              View on MyAnimeList
-            </a>
-          </Button>
-        </div>
-        
-        <div className="bg-white p-6 rounded-2xl border border-pink-100 shadow-sm mb-8">
-          <div className="flex justify-between items-end mb-3">
-            <div>
-              <p className="text-sm font-medium text-pink-600 flex items-center gap-1">
-                <Sparkles size={14} /> Overall Progress
-              </p>
-              <h2 className="text-2xl font-bold">{percentage}% Complete</h2>
+        <div className="flex flex-col md:flex-row gap-8 mb-8">
+          <div className="w-full md:w-64 shrink-0">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+              <img 
+                src={season.imageUrl} 
+                alt={season.title}
+                className="w-full h-full object-cover"
+              />
             </div>
-            <p className="text-sm text-muted-foreground">
-              {totalWatched} of {totalItems} total items
-            </p>
           </div>
-          <div className="h-3 w-full bg-pink-50 rounded-full overflow-hidden">
-            <div 
-              className={cn("h-full transition-all duration-500 ease-out", season.color)}
-              style={{ width: `${percentage}%` }}
-            />
+          
+          <div className="flex-1 flex flex-col justify-center">
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <Badge variant="outline" className="border-pink-200 text-pink-600 bg-pink-50">
+                {season.year}
+              </Badge>
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{season.title}</h1>
+            </div>
+            
+            <div className="flex flex-wrap gap-3 mb-6">
+              <Button 
+                variant="outline" 
+                asChild 
+                className="border-pink-200 text-pink-600 hover:bg-pink-50 hover:text-pink-700"
+              >
+                <a href={season.malUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <ExternalLink size={16} />
+                  View on MyAnimeList
+                </a>
+              </Button>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-pink-100 shadow-sm">
+              <div className="flex justify-between items-end mb-3">
+                <div>
+                  <p className="text-sm font-medium text-pink-600 flex items-center gap-1">
+                    <Sparkles size={14} /> Overall Progress
+                  </p>
+                  <h2 className="text-2xl font-bold">{percentage}% Complete</h2>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {totalWatched} of {totalItems} total items
+                </p>
+              </div>
+              <div className="h-3 w-full bg-pink-50 rounded-full overflow-hidden">
+                <div 
+                  className={cn("h-full transition-all duration-500 ease-out", season.color)}
+                  style={{ width: `${percentage}%` }}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
