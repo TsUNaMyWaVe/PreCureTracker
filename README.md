@@ -10,6 +10,12 @@ A web application to track your journey through the magical world of Pretty Cure
 
 ---
 
+## Live Example
+
+Can be found here
+
+---
+
 ## Features
 
 - **Supabase Integration**: Secure authentication and database sync
