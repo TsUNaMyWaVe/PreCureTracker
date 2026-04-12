@@ -1,17 +1,37 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { precureSeasons } from "@/data/precureData";
 import { useProgress } from "@/hooks/useProgress";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Sparkles, Film, Tv, CheckCheck, X, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SeasonDetail = () => {
   const { id } = useParams();
   const { watched, toggleWatched, markItems } = useProgress();
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [imageLoading, setImageLoading] = useState(true);
   
   const season = precureSeasons.find(s => s.id === id);
+
+  useEffect(() => {
+    if (season?.malUrl) {
+      const malId = season.malUrl.match(/\/anime\/(\d+)/)?.[1];
+      if (malId) {
+        setImageLoading(true);
+        fetch(`https://api.jikan.moe/v4/anime/${malId}`)
+          .then(res => res.json())
+          .then(data => {
+            setImageUrl(data.data?.images?.webp?.large_image_url || data.data?.images?.jpg?.large_image_url || null);
+          })
+          .catch(err => console.error("Error fetching MAL image:", err))
+          .finally(() => setImageLoading(false));
+      }
+    }
+  }, [season?.malUrl]);
 
   if (!season) return <div className="p-8">Season not found</div>;
 
@@ -51,23 +71,53 @@ const SeasonDetail = () => {
           </Button>
         </div>
         
-        <div className="bg-white p-6 rounded-2xl border border-pink-100 shadow-sm mb-8">
-          <div className="flex justify-between items-end mb-3">
-            <div>
-              <p className="text-sm font-medium text-pink-600 flex items-center gap-1">
-                <Sparkles size={14} /> Overall Progress
-              </p>
-              <h2 className="text-2xl font-bold">{percentage}% Complete</h2>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              {totalWatched} of {totalItems} total items
-            </p>
+        <div className="flex flex-col lg:flex-row gap-8 mb-8">
+          <div className="w-full lg:w-64 shrink-0">
+            {imageLoading ? (
+              <Skeleton className="w-full aspect-[3/4] rounded-2xl" />
+            ) : imageUrl ? (
+              <img 
+                src={imageUrl} 
+                alt={season.title} 
+                className="w-full rounded-2xl shadow-md border border-pink-100 object-cover aspect-[3/4]"
+              />
+            ) : (
+              <div className="w-full aspect-[3/4] bg-pink-50 rounded-2xl border border-pink-100 flex items-center justify-center text-pink-300">
+                <Tv size={48} />
+              </div>
+            )}
           </div>
-          <div className="h-3 w-full bg-pink-50 rounded-full overflow-hidden">
-            <div 
-              className={cn("h-full transition-all duration-500 ease-out", season.color)}
-              style={{ width: `${percentage}%` }}
-            />
+
+          <div className="flex-1">
+            <div className="bg-white p-6 rounded-2xl border border-pink-100 shadow-sm h-full flex flex-col justify-center">
+              <div className="flex justify-between items-end mb-3">
+                <div>
+                  <p className="text-sm font-medium text-pink-600 flex items-center gap-1">
+                    <Sparkles size={14} /> Overall Progress
+                  </p>
+                  <h2 className="text-2xl font-bold">{percentage}% Complete</h2>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {totalWatched} of {totalItems} total items
+                </p>
+              </div>
+              <div className="h-3 w-full bg-pink-50 rounded-full overflow-hidden">
+                <div 
+                  className={cn("h-full transition-all duration-500 ease-out", season.color)}
+                  style={{ width: `${percentage}%` }}
+                />
+              </div>
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                <div className="p-4 bg-pink-50/50 rounded-xl border border-pink-100">
+                  <p className="text-xs text-pink-600 font-bold uppercase tracking-wider mb-1">Episodes</p>
+                  <p className="text-xl font-black text-gray-900">{watchedEpisodes} / {season.episodesCount}</p>
+                </div>
+                <div className="p-4 bg-pink-50/50 rounded-xl border border-pink-100">
+                  <p className="text-xs text-pink-600 font-bold uppercase tracking-wider mb-1">Movies</p>
+                  <p className="text-xl font-black text-gray-900">{watchedMovies} / {season.movies.length}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
