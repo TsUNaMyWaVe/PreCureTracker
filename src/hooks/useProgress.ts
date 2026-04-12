@@ -73,6 +73,7 @@ export const useProgress = () => {
           if (error) throw error;
         }
       } catch (error: any) {
+        console.error('Sync error:', error);
         showError('Failed to sync with cloud');
         setWatched(prev => ({
           ...prev,
@@ -96,9 +97,13 @@ export const useProgress = () => {
     if (user) {
       try {
         if (shouldWatch) {
+          // Using upsert with onConflict to handle bulk marking
           const { error } = await supabase
             .from('watched_items')
-            .upsert(ids.map(id => ({ item_id: id, user_id: user.id })));
+            .upsert(
+              ids.map(id => ({ item_id: id, user_id: user.id })),
+              { onConflict: 'user_id,item_id' }
+            );
           if (error) throw error;
         } else {
           const { error } = await supabase
@@ -109,8 +114,9 @@ export const useProgress = () => {
           if (error) throw error;
         }
       } catch (error: any) {
+        console.error('Bulk sync error:', error);
         showError('Failed to sync with cloud');
-        fetchProgress();
+        fetchProgress(); // Revert to server state on error
       }
     } else {
       localStorage.setItem('precure-progress', JSON.stringify(newWatched));

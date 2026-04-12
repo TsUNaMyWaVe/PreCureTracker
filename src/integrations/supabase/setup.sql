@@ -1,17 +1,23 @@
--- Create the watched_items table
+-- Create the watched_items table if it doesn't exist
 CREATE TABLE IF NOT EXISTS public.watched_items (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
   item_id TEXT NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  -- Ensure a user can't have duplicate entries for the same item
-  UNIQUE(user_id, item_id)
+  -- This unique constraint is CRITICAL for the 'Mark All' (upsert) functionality to work
+  CONSTRAINT unique_user_item UNIQUE(user_id, item_id)
 );
 
 -- Enable Row Level Security
 ALTER TABLE public.watched_items ENABLE ROW LEVEL SECURITY;
 
--- Create policies
+-- Drop existing policies to avoid conflicts during re-run
+DROP POLICY IF EXISTS "Users can view their own watched items" ON public.watched_items;
+DROP POLICY IF EXISTS "Users can insert their own watched items" ON public.watched_items;
+DROP POLICY IF EXISTS "Users can update their own watched items" ON public.watched_items;
+DROP POLICY IF EXISTS "Users can delete their own watched items" ON public.watched_items;
+
+-- Create secure policies
 CREATE POLICY "Users can view their own watched items"
   ON public.watched_items FOR SELECT
   TO authenticated
