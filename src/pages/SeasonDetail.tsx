@@ -2,24 +2,30 @@ import { useParams } from "react-router-dom";
 import { precureSeasons } from "@/data/precureData";
 import { useProgress } from "@/hooks/useProgress";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Film, Tv } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sparkles, Film, Tv, CheckCheck, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SeasonDetail = () => {
   const { id } = useParams();
-  const { watched, toggleWatched } = useProgress();
+  const { watched, toggleWatched, markItems } = useProgress();
   
   const season = precureSeasons.find(s => s.id === id);
 
   if (!season) return <div className="p-8">Season not found</div>;
 
   const episodes = Array.from({ length: season.episodesCount }, (_, i) => i + 1);
+  const episodeIds = episodes.map(ep => `${season.id}-ep-${ep}`);
+  const movieIds = season.movies.map(m => m.id);
   
   const watchedEpisodes = episodes.filter(ep => watched[`${season.id}-ep-${ep}`]).length;
   const watchedMovies = season.movies.filter(m => watched[m.id]).length;
+  
+  const allEpisodesWatched = watchedEpisodes === season.episodesCount;
+  const allMoviesWatched = watchedMovies === season.movies.length;
+
   const totalItems = season.episodesCount + season.movies.length;
   const totalWatched = watchedEpisodes + watchedMovies;
   const percentage = Math.round((totalWatched / totalItems) * 100);
@@ -54,9 +60,23 @@ const SeasonDetail = () => {
             <div className="flex items-center gap-2 mb-4">
               <Tv className="text-pink-500" size={20} />
               <h3 className="text-xl font-semibold">Episodes</h3>
-              <Badge variant="secondary" className="ml-auto">
-                {watchedEpisodes}/{season.episodesCount}
-              </Badge>
+              <div className="ml-auto flex gap-2">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="h-8 text-xs text-pink-600 hover:text-pink-700 hover:bg-pink-50"
+                  onClick={() => markItems(episodeIds, !allEpisodesWatched)}
+                >
+                  {allEpisodesWatched ? (
+                    <><X size={14} className="mr-1" /> Unmark All</>
+                  ) : (
+                    <><CheckCheck size={14} className="mr-1" /> Mark All</>
+                  )}
+                </Button>
+                <Badge variant="secondary">
+                  {watchedEpisodes}/{season.episodesCount}
+                </Badge>
+              </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {episodes.map(ep => (
@@ -85,9 +105,25 @@ const SeasonDetail = () => {
             <div className="flex items-center gap-2 mb-4">
               <Film className="text-pink-500" size={20} />
               <h3 className="text-xl font-semibold">Movies</h3>
-              <Badge variant="secondary" className="ml-auto">
-                {watchedMovies}/{season.movies.length}
-              </Badge>
+              <div className="ml-auto flex gap-2">
+                {season.movies.length > 0 && (
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="h-8 text-xs text-pink-600 hover:text-pink-700 hover:bg-pink-50"
+                    onClick={() => markItems(movieIds, !allMoviesWatched)}
+                  >
+                    {allMoviesWatched ? (
+                      <><X size={14} className="mr-1" /> Unmark All</>
+                    ) : (
+                      <><CheckCheck size={14} className="mr-1" /> Mark All</>
+                    )}
+                  </Button>
+                )}
+                <Badge variant="secondary">
+                  {watchedMovies}/{season.movies.length}
+                </Badge>
+              </div>
             </div>
             {season.movies.length > 0 ? (
               <div className="space-y-3">

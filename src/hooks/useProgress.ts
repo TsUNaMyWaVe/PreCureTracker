@@ -8,12 +8,10 @@ export const useProgress = () => {
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
-    // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
     });
 
-    // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
     });
@@ -25,7 +23,6 @@ export const useProgress = () => {
     if (user) {
       fetchProgress();
     } else {
-      // Fallback to local storage for guests
       const saved = localStorage.getItem('precure-progress');
       if (saved) setWatched(JSON.parse(saved));
       setLoading(false);
@@ -55,7 +52,6 @@ export const useProgress = () => {
   const toggleWatched = async (id: string) => {
     const isCurrentlyWatched = !!watched[id];
     
-    // Optimistic update
     setWatched(prev => ({
       ...prev,
       [id]: !isCurrentlyWatched
@@ -78,18 +74,48 @@ export const useProgress = () => {
         }
       } catch (error: any) {
         showError('Failed to sync with cloud');
-        // Rollback on error
         setWatched(prev => ({
           ...prev,
           [id]: isCurrentlyWatched
         }));
       }
     } else {
-      // Update local storage for guests
       const newWatched = { ...watched, [id]: !isCurrentlyWatched };
       localStorage.setItem('precure-progress', JSON.stringify(newWatched));
     }
   };
 
-  return { watched, toggleWatched, loading, user };
+  const markItems = async (ids: string[], shouldWatch: boolean) => {
+    const newWatched = { ...watched };
+    ids.forEach(id => {
+      newWatched[id] = shouldWatch;
+    });
+    
+    setWatched(newWatched);
+
+    if (user) {
+      try {
+        if (shouldWatch) {
+          const { error } = await supabase
+            .from('watched_items')
+            .upsert(ids.map(id => ({ item_id: id, user_id: user.id })));
+          if (error) throw error;
+        } else {
+          const { error } = await supabase
+            .from('watched_items')
+            .delete()
+            .in('item_id', ids)
+            .eq('user_id', user.id);
+          if (error) throw error;
+        }
+      } catch (error: any) {
+        showError('Failed to sync with cloud');
+        fetchProgress();
+      }
+    } else {
+      localStorage.setItem('precure-progress', JSON.stringify(newWatched));
+    }
+  };
+
+  return { watched, toggleWatched, markItems, loading, user };
 };
