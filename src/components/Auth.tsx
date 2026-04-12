@@ -18,7 +18,14 @@ export const Auth = () => {
     
     try {
       if (isSignUp) {
-        const { error } = await supabase.auth.signUp({ email, password });
+        // The redirectTo should match one of the URLs in your Supabase URL Configuration
+        const { error } = await supabase.auth.signUp({ 
+          email, 
+          password,
+          options: {
+            emailRedirectTo: window.location.origin,
+          }
+        });
         if (error) throw error;
         showSuccess('A magical confirmation link has been sent to your inbox! ✨');
       } else {
