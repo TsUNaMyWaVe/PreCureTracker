@@ -65,7 +65,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 48,
     color: "bg-rose-400",
     movies: [
-      { id: "m5", title: "Yes! PreCure 5 GoGo! the Movie: Happy Birthday in the Sweets Kingdom", type: 'movie' }
+      { id: "m5", title: "Yes! PreCure 5 GoGo! the Movie: Happy Birthday in the Sweets Kingdom", type: 'movie' },
+      // All Stars #1 (Mar 20 2009) – aired during this season
+      { id: "allstars-1", title: "Pretty Cure All Stars DX: Everyone’s Friends — The Collection of Miracles!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/3692/Yes_Precure_5_GoGo"
   },
@@ -76,7 +78,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 50,
     color: "bg-red-400",
     movies: [
-      { id: "m6", title: "Fresh Pretty Cure! the Movie: The Kingdom of Toys has Lots of Secrets!?", type: 'movie' }
+      { id: "m6", title: "Fresh Pretty Cure! the Movie: The Kingdom of Toys has Lots of Secrets!?", type: 'movie' },
+      // All Stars #2 (Mar 20 2010) – aired during this season
+      { id: "allstars-2", title: "Pretty Cure All Stars DX2: Light of Hope — Protect the Rainbow Jewel!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/5684/Fresh_Precure"
   },
@@ -87,7 +91,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-purple-400",
     movies: [
-      { id: "m7", title: "HeartCatch PreCure! the Movie: Fashion Show in the Flower Capital... Really?!", type: 'movie' }
+      { id: "m7", title: "HeartCatch PreCure! the Movie: Fashion Show in the Flower Capital... Really?!", type: 'movie' },
+      // All Stars #3 (Mar 19 2011) – aired during this season
+      { id: "allstars-3", title: "Pretty Cure All Stars DX3: Deliver the Future!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/7645/HeartCatch_Precure"
   },
@@ -98,7 +104,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 48,
     color: "bg-pink-300",
     movies: [
-      { id: "m8", title: "Suite PreCure the Movie: Take it back! The Miraculous Melody that Connects Hearts", type: 'movie' }
+      { id: "m8", title: "Suite PreCure the Movie: Take it back! The Miraculous Melody that Connects Hearts", type: 'movie' },
+      // All Stars #4 (Mar 17 2012) – aired during this season
+      { id: "allstars-4", title: "Pretty Cure All Stars New Stage: Friends of the Future", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/9893/Suite_Precure%E2%99%AA"
   },
@@ -109,7 +117,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 48,
     color: "bg-orange-400",
     movies: [
-      { id: "m9", title: "Smile PreCure! the Movie: Big Mismatch in a Picture Book!", type: 'movie' }
+      { id: "m9", title: "Smile PreCure! the Movie: Big Mismatch in a Picture Book!", type: 'movie' },
+      // All Stars #5 (Mar 16 2013) – aired during this season
+      { id: "allstars-5", title: "Pretty Cure All Stars New Stage 2: Friends of the Heart", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/12191/Smile_Precure"
   },
@@ -142,7 +152,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 50,
     color: "bg-pink-200",
     movies: [
-      { id: "m12", title: "Go! Princess PreCure the Movie: Go! Go!! Splendid Triple Feature!!!", type: 'movie' }
+      { id: "m12", title: "Go! Princess PreCure the Movie: Go! Go!! Splendid Triple Feature!!!", type: 'movie' },
+      // All Stars #7 (Mar 14 2015) – aired during this season
+      { id: "allstars-7", title: "Pretty Cure All Stars: Spring Carnival♪", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/28669/Go_Princess_Precure"
   },
@@ -153,7 +165,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 50,
     color: "bg-purple-500",
     movies: [
-      { id: "m13", title: "Maho Girls PreCure! the Movie: The Miraculous Transformation! Cure Mofurun!", type: 'movie' }
+      { id: "m13", title: "Maho Girls PreCure! the Movie: The Miraculous Transformation! Cure Mofurun!", type: 'movie' },
+      // All Stars #8 (Mar 19 2016) – aired during this season
+      { id: "allstars-8", title: "Pretty Cure All Stars: Singing with Everyone♪ Miraculous Magic!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/31884/Mahoutsukai_Precure"
   },
@@ -164,7 +178,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-yellow-200",
     movies: [
-      { id: "m14", title: "Kirakira PreCure a la Mode the Movie: Memories of Mille-Feuille!", type: 'movie' }
+      { id: "m14", title: "Kirakira PreCure a la Mode the Movie: Memories of Mille-Feuille!", type: 'movie' },
+      // All Stars #9 (Mar 18 2017) – aired during this season
+      { id: "allstars-9", title: "Pretty Cure Dream Stars!", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/34290/Kirakira%E2%98%86Precure_a_la_Mode"
   },
@@ -175,7 +191,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-pink-400",
     movies: [
-      { id: "m15", title: "Hugtto! PreCure ♡ Futari wa Pretty Cure: All Stars Memories", type: 'movie' }
+      { id: "m15", title: "Hugtto! PreCure ♡ Futari wa Pretty Cure: All Stars Memories", type: 'movie' },
+      // All Stars #13 (Oct 31 2020) – aired during this season
+      { id: "allstars-13", title: "Pretty Cure All Stars Miracle Leap: A Strange Day With Everyone", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/36593/Hug_tto_Precure"
   },
@@ -219,9 +237,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 45,
     color: "bg-pink-500",
     movies: [
-      { id: "m19", title: "Delicious Party PreCure the Movie: Dreaming Children's Lunch!", type: 'movie' }
+      { id: "m19", title: "Delicious Party PreCure the Movie: Dreaming Children’s Lunch!", type: 'movie' }
     ],
-    malUrl: "https://myanimelist.net/anime/50281/Delicious_Party%E2%99%A1Precure"
+    malUrl: "https://myanimelist.net/anime/50281/Delicious_Precure"
   },
   {
     id: "hirogaru-sky",
@@ -230,7 +248,9 @@ export const precureSeasons: Season[] = [
     episodesCount: 50,
     color: "bg-sky-400",
     movies: [
-      { id: "m20", title: "PreCure All Stars F", type: 'movie' }
+      { id: "m20", title: "PreCure All Stars F", type: 'movie' },
+      // All Stars #14 (Sep 15 2023) – aired during this season
+      { id: "allstars-14", title: "Pretty Cure All Stars F", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/53716/Hirogaru_Sky_Precure"
   },
