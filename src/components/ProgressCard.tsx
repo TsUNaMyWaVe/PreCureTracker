@@ -18,14 +18,7 @@ export const ProgressCard = ({ season, watchedEpisodes, watchedMovies }: Progres
   return (
     <Link to={`/season/${season.id}`}>
       <Card className="hover:shadow-lg transition-all duration-300 border-pink-100 overflow-hidden group h-full flex flex-col">
-        <div className="relative aspect-[3/4] overflow-hidden">
-          <img 
-            src={season.imageUrl} 
-            alt={season.title}
-            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-          />
-          <div className={cn("absolute bottom-0 left-0 h-1.5 w-full", season.color)} />
-        </div>
+        <div className={cn("h-2 w-full", season.color)} />
         <CardHeader className="pb-2">
           <CardTitle className="text-lg group-hover:text-pink-600 transition-colors line-clamp-1">{season.title}</CardTitle>
           <p className="text-sm text-muted-foreground">{season.year}</p>
