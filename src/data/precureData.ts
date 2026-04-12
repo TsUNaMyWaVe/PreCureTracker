@@ -67,7 +67,7 @@ export const precureSeasons: Season[] = [
     movies: [
       { id: "m5", title: "Yes! PreCure 5 GoGo! the Movie: Happy Birthday in the Sweets Kingdom", type: 'movie' }
     ],
-    malUrl: "https://myanimelist.net/anime/3689/Yes_Precure_5_GoGo"
+    malUrl: "https://myanimelist.net/anime/3692/Yes_Precure_5_GoGo"
   },
   {
     id: "fresh",
@@ -122,7 +122,7 @@ export const precureSeasons: Season[] = [
     movies: [
       { id: "m10", title: "DokiDoki! PreCure the Movie: Mana's Getting Married!!? The Dress of Hope that Connects to the Future", type: 'movie' }
     ],
-    malUrl: "https://myanimelist.net/anime/15883/DokiDoki_Precure"
+    malUrl: "https://myanimelist.net/anime/16419/DokiDoki_Precure"
   },
   {
     id: "happiness-charge",
@@ -188,7 +188,7 @@ export const precureSeasons: Season[] = [
     movies: [
       { id: "m16", title: "Star Twinkle PreCure the Movie: These Feelings Within The Song Of Stars", type: 'movie' }
     ],
-    malUrl: "https://myanimelist.net/anime/38304/Star%E2%98%86Twinkle_Precure"
+    malUrl: "https://myanimelist.net/anime/38578/Star%E2%98%86Twinkle_Precure"
   },
   {
     id: "healin-good",
@@ -199,7 +199,7 @@ export const precureSeasons: Season[] = [
     movies: [
       { id: "m17", title: "Healin' Good PreCure the Movie: GoGo! Big Transformation! The Town of Dreams", type: 'movie' }
     ],
-    malUrl: "https://myanimelist.net/anime/40632/Healin_Good%E2%99%A1Precure"
+    malUrl: "https://myanimelist.net/anime/40610/Healin_Good%E2%99%A1Precure"
   },
   {
     id: "tropical-rouge",
@@ -221,7 +221,7 @@ export const precureSeasons: Season[] = [
     movies: [
       { id: "m19", title: "Delicious Party PreCure the Movie: Dreaming Children's Lunch!", type: 'movie' }
     ],
-    malUrl: "https://myanimelist.net/anime/50681/Delicious_Party%E2%99%A1Precure"
+    malUrl: "https://myanimelist.net/anime/50281/Delicious_Party%E2%99%A1Precure"
   },
   {
     id: "hirogaru-sky",
@@ -243,6 +243,6 @@ export const precureSeasons: Season[] = [
     movies: [
       { id: "m21", title: "Wonderful PreCure! The Movie: Game World", type: 'movie' }
     ],
-    malUrl: "https://myanimelist.net/anime/57608/Wonderful_Precure"
+    malUrl: "https://myanimelist.net/anime/57390/Wonderful_Precure"
   }
 ];
