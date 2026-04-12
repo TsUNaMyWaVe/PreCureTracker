@@ -20,7 +20,7 @@ export const Auth = () => {
       if (isSignUp) {
         const { error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
-        showSuccess('Check your email for the confirmation link!');
+        showSuccess('A magical confirmation link has been sent to your inbox! ✨');
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
