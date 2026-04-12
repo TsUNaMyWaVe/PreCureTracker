@@ -1,5 +1,4 @@
 import { Season } from "@/data/precureData";
-import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -26,7 +25,12 @@ export const ProgressCard = ({ season, watchedCount, totalItems }: ProgressCardP
             <span>Progress</span>
             <span className="font-bold text-pink-600">{percentage}%</span>
           </div>
-          <Progress value={percentage} className="h-2 bg-pink-50" />
+          <div className="h-2 w-full bg-pink-50 rounded-full overflow-hidden">
+            <div 
+              className={cn("h-full transition-all duration-500 ease-out", season.color)}
+              style={{ width: `${percentage}%` }}
+            />
+          </div>
           <p className="text-xs mt-2 text-muted-foreground">
             {watchedCount} / {totalItems} items watched
           </p>

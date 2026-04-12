@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { precureSeasons } from "@/data/precureData";
 import { useProgress } from "@/hooks/useProgress";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Film, Tv, CheckCheck, X } from "lucide-react";
@@ -52,7 +51,12 @@ const SeasonDetail = () => {
               {totalWatched} of {totalItems} total items
             </p>
           </div>
-          <Progress value={percentage} className="h-3 bg-pink-50" />
+          <div className="h-3 w-full bg-pink-50 rounded-full overflow-hidden">
+            <div 
+              className={cn("h-full transition-all duration-500 ease-out", season.color)}
+              style={{ width: `${percentage}%` }}
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
