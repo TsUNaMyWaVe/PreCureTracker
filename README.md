@@ -12,7 +12,7 @@ A web application to track your journey through the magical world of Pretty Cure
 
 ## Live Example
 
-Can be found here
+Can be found [here](https://precure-tracker.vercel.app/).
 
 ---
 
