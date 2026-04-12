@@ -1,7 +1,7 @@
 import { precureSeasons } from "@/data/precureData";
 import { useProgress } from "@/hooks/useProgress";
 import { ProgressCard } from "@/components/ProgressCard";
-import { Sparkles, Heart } from "lucide-react";
+import { Sparkles, Heart, Calendar } from "lucide-react";
 
 const Index = () => {
   const { watched } = useProgress();
@@ -44,7 +44,7 @@ const Index = () => {
         </p>
       </header>
 
-      <div className="bg-gradient-to-r from-pink-400 to-purple-400 p-8 rounded-3xl text-white shadow-xl mb-12 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-pink-400 to-purple-400 p-8 rounded-3xl text-white shadow-xl mb-6 relative overflow-hidden">
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-2 opacity-90">
             <Sparkles size={18} />
@@ -70,6 +70,13 @@ const Index = () => {
         {/* Decorative circles */}
         <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-600/20 rounded-full blur-3xl" />
+      </div>
+
+      <div className="flex items-center justify-center gap-2 mb-12 text-muted-foreground animate-in slide-in-from-bottom-4 duration-1000 delay-300 fill-mode-both">
+        <Calendar size={18} className="text-pink-500" />
+        <p className="text-sm md:text-base font-medium">
+          At a rate of one entry per day, you've spent <span className="text-pink-600 font-bold">{totalWatched} days</span> watching PreCure!
+        </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
