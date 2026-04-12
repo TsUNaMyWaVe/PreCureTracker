@@ -81,20 +81,22 @@ const Index = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {precureSeasons.map((season) => {
-          let seasonWatched = 0;
+          let episodesWatched = 0;
           for (let i = 1; i <= season.episodesCount; i++) {
-            if (watched[`${season.id}-ep-${i}`]) seasonWatched++;
+            if (watched[`${season.id}-ep-${i}`]) episodesWatched++;
           }
+          
+          let moviesWatched = 0;
           season.movies.forEach(m => {
-            if (watched[m.id]) seasonWatched++;
+            if (watched[m.id]) moviesWatched++;
           });
 
           return (
             <ProgressCard 
               key={season.id} 
               season={season} 
-              watchedCount={seasonWatched}
-              totalItems={season.episodesCount + season.movies.length}
+              watchedEpisodes={episodesWatched}
+              watchedMovies={moviesWatched}
             />
           );
         })}
