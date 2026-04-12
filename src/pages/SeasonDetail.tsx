@@ -4,7 +4,7 @@ import { useProgress } from "@/hooks/useProgress";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Film, Tv, CheckCheck, X } from "lucide-react";
+import { Sparkles, Film, Tv, CheckCheck, X, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SeasonDetail = () => {
@@ -32,11 +32,23 @@ const SeasonDetail = () => {
   return (
     <div className="p-6 max-w-5xl mx-auto animate-in fade-in duration-500">
       <div className="mb-8">
-        <div className="flex items-center gap-3 mb-2">
-          <Badge variant="outline" className="border-pink-200 text-pink-600 bg-pink-50">
-            {season.year}
-          </Badge>
-          <h1 className="text-3xl font-bold text-gray-900">{season.title}</h1>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+          <div className="flex items-center gap-3">
+            <Badge variant="outline" className="border-pink-200 text-pink-600 bg-pink-50">
+              {season.year}
+            </Badge>
+            <h1 className="text-3xl font-bold text-gray-900">{season.title}</h1>
+          </div>
+          <Button 
+            variant="outline" 
+            asChild 
+            className="border-pink-200 text-pink-600 hover:bg-pink-50 hover:text-pink-700"
+          >
+            <a href={season.malUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <ExternalLink size={16} />
+              View on MyAnimeList
+            </a>
+          </Button>
         </div>
         
         <div className="bg-white p-6 rounded-2xl border border-pink-100 shadow-sm mb-8">
