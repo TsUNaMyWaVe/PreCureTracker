@@ -10,7 +10,7 @@ A web application to track your journey through the magical world of Pretty Cure
 
 ---
 
-## 🚀 Features
+## Features
 
 - **Supabase Integration**: Secure authentication and database sync
 - **Progress Tracking**: Visual percentage completion for each season
@@ -21,7 +21,7 @@ A web application to track your journey through the magical world of Pretty Cure
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React 19 + TypeScript
 - **UI Library**: shadcn/ui components with Tailwind CSS
@@ -32,7 +32,7 @@ A web application to track your journey through the magical world of Pretty Cure
 
 ---
 
-## 📦 Setup Instructions
+## Setup Instructions
 
 1. **Clone the repository**
    ```bash
@@ -57,7 +57,7 @@ A web application to track your journey through the magical world of Pretty Cure
 
 ---
 
-## 🧪 Usage
+## Usage
 
 1. **Sign up** using the authentication component
 2. **Browse seasons** in the dashboard
@@ -67,7 +67,7 @@ A web application to track your journey through the magical world of Pretty Cure
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 - [Supabase Docs](https://supabase.com/docs)
 - [React Query Docs](https://tanstack.com/query/v4/docs)
@@ -75,8 +75,9 @@ A web application to track your journey through the magical world of Pretty Cure
 
 ---
 
-## 📝 Notes
+## Notes
 
-- This app is generated using Dyad - a full-stack React development tool- All Supabase credentials are hardcoded for simplicity (safe to expose)
+- This app is generated using Dyad - a full-stack React development tool
+- All Supabase credentials are hardcoded for simplicity (safe to expose)
 - The app uses local storage as a fallback for offline use
-- Progress syncs automatically when connected to Supabase---
+- Progress syncs automatically when connected to Supabase
