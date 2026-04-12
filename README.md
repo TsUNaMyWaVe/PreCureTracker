@@ -36,7 +36,7 @@ A web application to track your journey through the magical world of Pretty Cure
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-repo/precure-tracker.git   cd precure-tracker
+   git clone https://github.com/TsUNaMyWaVe/PreCureTracker  cd precure-tracker
    ```
 
 2. **Install dependencies**
