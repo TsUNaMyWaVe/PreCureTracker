@@ -42,7 +42,8 @@ Can be found [here](https://precure-tracker.vercel.app/).
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/TsUNaMyWaVe/PreCureTracker  cd precure-tracker
+   git clone https://github.com/TsUNaMyWaVe/PreCureTracker
+   cd precure-tracker
    ```
 
 2. **Install dependencies**
@@ -50,13 +51,18 @@ Can be found [here](https://precure-tracker.vercel.app/).
    npm install
    ```
 
-3. **Set up Supabase**
-   - Go to [Supabase Dashboard](https://supabase.com/)
-   - Create a new project or use existing project ID: `cplhariscvfxxohkydsi`
-   - Ensure RLS policies are set up (already configured in code)
-   - Get your Supabase URL and Anon Key (already in `client.ts`)
+3. **Set up Environment Variables**
+   - Create a `.env` file in the root directory.
+   - Copy the contents from `.env.example` into `.env`.
+   - Replace the placeholder values with your own Supabase credentials.
 
-4. **Run the app**
+4. **Set up Supabase**
+   - Go to [Supabase Dashboard](https://supabase.com/)
+   - Create a new project.
+   - Run the SQL provided in `src/integrations/supabase/setup.sql` in the Supabase SQL Editor to create the necessary tables and RLS policies.
+   - Get your **Project URL** and **Anon Key** from Project Settings -> API.
+
+5. **Run the app**
    ```bash
    npm run dev
    ```
@@ -83,7 +89,6 @@ Can be found [here](https://precure-tracker.vercel.app/).
 
 ## Notes
 
-- This app is generated using Dyad - a full-stack React development tool
-- All Supabase credentials are hardcoded for simplicity (safe to expose)
-- The app uses local storage as a fallback for offline use
-- Progress syncs automatically when connected to Supabase
+- This app is generated using Dyad - a full-stack React development tool.
+- The app uses local storage as a fallback for offline use.
+- Progress syncs automatically when connected to Supabase.
