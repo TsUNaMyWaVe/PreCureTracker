@@ -1,39 +1,37 @@
--- Create the watched_items table if it doesn't exist
+-- Create watched_items table
 CREATE TABLE IF NOT EXISTS public.watched_items (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
   item_id TEXT NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  -- This unique constraint is CRITICAL for the 'Mark All' (upsert) functionality to work
-  CONSTRAINT unique_user_item UNIQUE(user_id, item_id)
+  UNIQUE(user_id, item_id)
 );
 
 -- Enable Row Level Security
 ALTER TABLE public.watched_items ENABLE ROW LEVEL SECURITY;
 
--- Drop existing policies to avoid conflicts during re-run
-DROP POLICY IF EXISTS "Users can view their own watched items" ON public.watched_items;
-DROP POLICY IF EXISTS "Users can insert their own watched items" ON public.watched_items;
-DROP POLICY IF EXISTS "Users can update their own watched items" ON public.watched_items;
-DROP POLICY IF EXISTS "Users can delete their own watched items" ON public.watched_items;
+-- NEW: Explicitly grant access to the Data API roles
+-- This is required by the new Supabase security policy
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.watched_items TO authenticated;
+GRANT SELECT ON TABLE public.watched_items TO anon;
 
--- Create secure policies
-CREATE POLICY "Users can view their own watched items"
-  ON public.watched_items FOR SELECT
-  TO authenticated
-  USING (auth.uid() = user_id);
+-- Create RLS Policies
+CREATE POLICY "Users can view their own watched items" 
+ON public.watched_items FOR SELECT 
+TO authenticated 
+USING (auth.uid() = user_id);
 
-CREATE POLICY "Users can insert their own watched items"
-  ON public.watched_items FOR INSERT
-  TO authenticated
-  WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can insert their own watched items" 
+ON public.watched_items FOR INSERT 
+TO authenticated 
+WITH CHECK (auth.uid() = user_id);
 
-CREATE POLICY "Users can update their own watched items"
-  ON public.watched_items FOR UPDATE
-  TO authenticated
-  USING (auth.uid() = user_id);
+CREATE POLICY "Users can update their own watched items" 
+ON public.watched_items FOR UPDATE 
+TO authenticated 
+USING (auth.uid() = user_id);
 
-CREATE POLICY "Users can delete their own watched items"
-  ON public.watched_items FOR DELETE
-  TO authenticated
-  USING (auth.uid() = user_id);
+CREATE POLICY "Users can delete their own watched items" 
+ON public.watched_items FOR DELETE 
+TO authenticated 
+USING (auth.uid() = user_id);
