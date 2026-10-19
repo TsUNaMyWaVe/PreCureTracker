@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Sparkles, Film, Tv, CheckCheck, X, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 const SeasonDetail = () => {
   const { id } = useParams();
@@ -18,19 +19,34 @@ const SeasonDetail = () => {
   const season = precureSeasons.find(s => s.id === id);
 
   useEffect(() => {
-    if (season?.malUrl) {
-      const malId = season.malUrl.match(/\/anime\/(\d+)/)?.[1];
-      if (malId) {
-        setImageLoading(true);
-        fetch(`https://api.jikan.moe/v4/anime/${malId}`)
-          .then(res => res.json())
-          .then(data => {
-            setImageUrl(data.data?.images?.webp?.large_image_url || data.data?.images?.jpg?.large_image_url || null);
-          })
-          .catch(err => console.error("Error fetching MAL image:", err))
-          .finally(() => setImageLoading(false));
-      }
+    let active = true;
+    const malId = season?.malUrl?.match(/\/anime\/(\d+)/)?.[1];
+
+    if (!malId) {
+      setImageUrl(null);
+      setImageLoading(false);
+      return () => {
+        active = false;
+      };
     }
+
+    setImageLoading(true);
+    supabase.functions.invoke("mal-anime-image", { body: { animeId: Number(malId) } })
+      .then(({ data, error }) => {
+        if (error) throw error;
+        if (active) setImageUrl(data?.imageUrl ?? null);
+      })
+      .catch(err => {
+        console.error("Error fetching MAL image:", err);
+        if (active) setImageUrl(null);
+      })
+      .finally(() => {
+        if (active) setImageLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
   }, [season?.malUrl]);
 
   if (!season) return <div className="p-8">Season not found</div>;
