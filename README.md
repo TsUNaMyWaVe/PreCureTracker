@@ -89,6 +89,6 @@ Can be found [here](https://precure-tracker.vercel.app/).
 
 ## Notes
 
-- This app is generated using Dyad - a full-stack React development tool.
+- This app was initially generated using Dyad - a full-stack React development tool. It is not using it anymore.
 - The app uses local storage as a fallback for offline use.
 - Progress syncs automatically when connected to Supabase.
