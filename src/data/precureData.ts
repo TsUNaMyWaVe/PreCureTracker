@@ -43,7 +43,8 @@ export const precureSeasons: Season[] = [
     episodesCount: 49,
     color: "bg-green-400",
     movies: [
-      { id: "m3", title: "Futari wa Pretty Cure Splash Star: Tick-Tock Crisis Hanging by a Thin Thread!", type: 'movie' }
+      { id: "m3", title: "Futari wa Pretty Cure Splash Star: Tick-Tock Crisis Hanging by a Thin Thread!", type: 'movie' },
+      { id: "m22", title: "Futari wa Precure: Splash☆Star Maji★Doki♥ Theater", type: 'movie' }
     ],
     malUrl: "https://myanimelist.net/anime/1534/Futari_wa_Precure__Splash%E2%98%85Star"
   },
